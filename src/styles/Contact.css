@@ -1,0 +1,30 @@
+
+.carta-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    padding: 9px;
+    margin: 0;
+    
+
+}
+
+.carta-img img{
+    border-radius: 50% !important;
+    background: #000;
+    width: 200px;
+    height: 200px;
+}
+
+@media screen and (max-width: 768px) {
+    .carta-img img{
+        width: 150px;
+        height: 150px;
+    }
+    .btns{
+        grid-auto-flow: column;
+    }
+    
+}
