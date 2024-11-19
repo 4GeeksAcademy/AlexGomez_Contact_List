@@ -28,3 +28,72 @@
     }
     
 }
+.select-wrapper {
+    position: relative;
+    width: 200px;
+  }
+  
+  select {
+    width: 100%;
+    padding: 10px 30px 10px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    overflow-y: auto;
+    max-height: 200px;
+  }
+  
+  /* Estilo del scrollbar para navegadores Webkit */
+  select::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+  }
+  
+  select::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px; /* Bordes redondeados */
+  }
+  
+  select::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px; /* Bordes redondeados del track */
+  }
+  
+  .select-wrapper::after {
+    content: '▼';
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #007bff;
+  }
+  
+  select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  option {
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  option:checked {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .alert {
+    position: fixed !important;
+    top: 40px;
+ 
+}
+  

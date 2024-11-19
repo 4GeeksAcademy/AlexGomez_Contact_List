@@ -1,8 +1,7 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { Context } from "../store/appContext.js";
 import { Card } from "../component/Card.jsx";
 import { Navbar } from "../component/navbar.js";
-
 
 export const Contact = () => {
   const { store, actions } = useContext(Context);
@@ -17,12 +16,10 @@ export const Contact = () => {
     }
   }, [contact]);
 
-  
   return (
     <>
-	
       <Navbar />
-	  
+
       <div className="container">
         {contact ? (
           contact.map((contact, index) => {

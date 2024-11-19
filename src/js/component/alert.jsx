@@ -1,7 +1,12 @@
 import React from 'react';
-
+import { useNavigate } from "react-router-dom";
 export const Alert = (props) => {
+  const navigate = useNavigate();
+  setTimeout(() => {
+    window.location.reload();
+  }, 1000);
   return (
+
 <div className={`alert ${props.danger=="#exclamation-triangle-fill"?'alert-danger':'alert-success'} d-flex align-items-center container`} role="alert">
     
       <svg
