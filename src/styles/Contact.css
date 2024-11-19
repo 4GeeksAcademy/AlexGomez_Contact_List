@@ -94,6 +94,15 @@
   .alert {
     position: fixed !important;
     top: 40px;
+  right: 0;
+  left: 0;
+
  
 }
   
+@media screen and (max-width: 768px) {
+    .alert {
+        width: 95% !important;
+    }
+    
+}

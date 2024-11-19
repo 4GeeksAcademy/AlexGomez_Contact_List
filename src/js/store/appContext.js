@@ -18,7 +18,8 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			state.actions.loadOptions();			
+			state.actions.loadOptions();	
+			state.actions.pictures();		
 		}, []);
 
 		return (

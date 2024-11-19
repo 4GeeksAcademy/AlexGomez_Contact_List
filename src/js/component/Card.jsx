@@ -76,7 +76,7 @@ export const Card = ({ prop,slug }) => {
       <div className="row g-0">
         <div className="col-md-4 carta-img">
           <img
-            src="https://static.vecteezy.com/system/resources/thumbnails/026/497/734/small_2x/businessman-on-isolated-png.png"
+            src={`${store.pictures[Math.floor(Math.random() * store.pictures.length)]}`}
             className="col-12 rounded"
             alt="..."
           />

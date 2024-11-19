@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 export const Alert = (props) => {
   const navigate = useNavigate();
   setTimeout(() => {
+    navigate("/");
     window.location.reload();
   }, 1000);
   return (
