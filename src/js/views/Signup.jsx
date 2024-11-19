@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useState, useContext,useEffect } from "react";
+import { Context } from "../store/appContext.js";
+import { Link,useParams} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import {Alert} from "../component/alert.jsx";
 
 export const Signup = () => {
+    
+    const { name, id } = useParams();
+    const [showAlert, setShowAlert] = useState(false);
+
+    
+    const { store, actions } = useContext(Context);
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        fullName: '',
+        name: '',
         email: '',
         phone: '',
         address: ''
@@ -20,23 +29,37 @@ export const Signup = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Form data submitted:', formData);
+        if (name) {
+            actions.editContact(name, id, formData.name, formData.email, formData.phone, formData.address);
+            navigate('/');
+            return;
+        }
+        setShowAlert(true); 
+        actions.addContact(formData.name, formData.email, formData.phone, formData.address);  
+       setTimeout(() => {
+            setShowAlert(false);
+            navigate('/');
+        }, 1000);
+        
     };
 
     return (
-        <div className="container mt-5">
-            <h2 className='text-center'>Add a new contact</h2>
-            <form onSubmit={handleSubmit}>
+       
+       
+       <div className="container mt-5">
+           
+           {showAlert && <Alert danger={"#check-circle-fill"} message={!name?"Contact added successfully":`Contact ${name} update successfully!` }/>}
+            <h2 className='text-center'>{!name? "Add a new contact":`Update to ${name}!`}</h2>
+            <form  onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label htmlFor="fullName" className="form-label">Full Name</label>
+                    <label htmlFor="name" className="form-label">Full Name</label>
                     <input
                         type="text"
                         className="form-control"
-                        id="fullName"
-                        name="fullName"
+                        id="name"
+                        name="name"
                         placeholder='Full Name'
-                        value={formData.fullName}
+                        value={formData.name}
                         onChange={handleChange}
                         required
                     />

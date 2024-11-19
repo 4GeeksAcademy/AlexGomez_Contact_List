@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Single } from "./views/single";
+
+
+
 import  {Signup}  from "./views/Signup.jsx";
 import injectContext from "./store/appContext";
 import { Contact } from "./views/Contact.js";
@@ -17,13 +19,14 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div>
+		<div className="mt-3">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>	
 					<Routes>
-						<Route path="/" element={<Contact/>} />				
+						<Route path="/" element={<Contact/>} />
+						<Route path="/home" element={<Contact/>} />
 						<Route path="/signup" element={<Signup />} />
-						<Route path="/single/:theid" element={<Single />} />
+						<Route path="/update/:name/:id" element={<Signup />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 				</ScrollToTop>

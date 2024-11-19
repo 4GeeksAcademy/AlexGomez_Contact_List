@@ -1,25 +1,39 @@
-import React from "react";
-
-import "../../styles/Contact.css";
-import { Card }  from "../component/Card.jsx";
+import React, { useEffect, useContext, useState } from "react";
+import { Context } from "../store/appContext.js";
+import { Card } from "../component/Card.jsx";
 import { Navbar } from "../component/navbar.js";
 
-export const Contact = () => (
-	<>
-	<Navbar />
-	 < div className="container">
-			<Card />
-	</div>
+
+export const Contact = () => {
+  const { store, actions } = useContext(Context);
+
+  let contact = store.Contact[0];
+  let slug = contact ? contact.slug : null;
+
+  contact = contact ? contact.contacts : null;
+  useEffect(() => {
+    if (!contact || contact.length === 0) {
+      actions.dataContact();
+    }
+  }, [contact]);
+
+  
+  return (
+    <>
 	
-	</>
-   
-//  <div className="text-center mt-5">
-//  <h1>Hello Rigo!</h1>
-//  <p>
-//    <img src={rigoImage} />
-//  </p>
-//     <a href="#" className="btn btn-success">
-//       If you see this green button, bootstrap is working
-//     </a>
-//   </div>
-);
+      <Navbar />
+	  
+      <div className="container">
+        {contact ? (
+          contact.map((contact, index) => {
+            return (
+              <Card key={index} prop={contact} slug={slug ? slug : "salazar"} />
+            );
+          })
+        ) : (
+          <p>No contacts found</p>
+        )}
+      </div>
+    </>
+  );
+};
