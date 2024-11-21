@@ -30,7 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       
       addUserFetch: (newUser) => {
-        console.log(newUser.name);
+   
         
         try {
           fetch(`https://playground.4geeks.com/contact/agendas/${newUser.name}`, {
