@@ -28,13 +28,13 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Error fetching data:", error);
         }
       },
-      addUserFetch: () => {
+      
+      addUserFetch: (newUser) => {
+        console.log(newUser.name);
+        
         try {
-          fetch("https://playground.4geeks.com/contact/agendas/salazar", {
+          fetch(`https://playground.4geeks.com/contact/agendas/${newUser.name}`, {
             method: "POST",
-            body: JSON.stringify({
-              name: "salazar",
-            }),
             headers: {
               "Content-Type": "application/json",
             },

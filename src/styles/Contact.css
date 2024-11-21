@@ -19,6 +19,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .ml-lg-auto{
+    margin: 0 auto !important;
+  }
     .carta-img img{
         width: 150px;
         height: 150px;
