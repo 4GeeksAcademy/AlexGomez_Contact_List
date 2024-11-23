@@ -73,6 +73,10 @@ const getState = ({ getStore, getActions, setStore }) => {
           const response = await fetch(
             `https://playground.4geeks.com/contact/agendas/${store.user}`
           );
+          if(response.status==404){
+            getActions().addUserFetch({ name: store.user });
+          
+          }
           const result = await response.json();
           setStore({ Contact: [] });
           setStore({ Contact: [result] });
@@ -81,6 +85,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
+
+
+
+      
       addContact: (name, email, phone, address) => {
         fetch(
           "https://playground.4geeks.com/contact/agendas/salazar/contacts",
