@@ -85,13 +85,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-
-
-
       
       addContact: (user,name, email, phone, address) => {
-        console.log(user);
-        
+      
         fetch(
           `https://playground.4geeks.com/contact/agendas/${user}/contacts`,
           {
