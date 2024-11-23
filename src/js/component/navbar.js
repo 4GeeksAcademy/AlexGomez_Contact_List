@@ -97,7 +97,7 @@ export const Navbar = () => {
           </Link>
         </div>
         <div className=" ml-lg-auto">
-          <Link to="/signup">
+          <Link to={`/signup/${selectedValue}`}>
             <button className="btn btn-success btn-sm btn-lg me-2  ">Add new contact</button>
           </Link>
           <button className="btn btn-primary btn-sm btn-lg  " onClick={handleAddUser}>

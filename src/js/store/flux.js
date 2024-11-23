@@ -89,9 +89,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
       
-      addContact: (name, email, phone, address) => {
+      addContact: (user,name, email, phone, address) => {
+        console.log(user);
+        
         fetch(
-          "https://playground.4geeks.com/contact/agendas/salazar/contacts",
+          `https://playground.4geeks.com/contact/agendas/${user}/contacts`,
           {
             method: "POST",
             body: JSON.stringify({

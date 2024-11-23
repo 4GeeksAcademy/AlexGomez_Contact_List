@@ -7,9 +7,10 @@ import { Alert } from "../component/alert.jsx";
 export const Signup = () => {
   const { name, id } = useParams();
   const [showAlert, setShowAlert] = useState(false);
-
   const { actions } = useContext(Context);
   const navigate = useNavigate();
+  
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,7 +28,9 @@ export const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name) {
+    
+    
+    if (id) {
       actions.editContact(
         name,
         id,
@@ -41,6 +44,7 @@ export const Signup = () => {
     }
     setShowAlert(true);
     actions.addContact(
+      name,
       formData.name,
       formData.email,
       formData.phone,
